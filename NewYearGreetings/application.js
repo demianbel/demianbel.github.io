@@ -26,7 +26,7 @@ var vk_inited = false;
 VK.init(function() { 
 	vk_inited = true;
  });
-profile = vk.api('account.getProfileInfo');
+profile = VK.api('account.getProfileInfo');
 var name = profile.name;
 log(name);
 game.newLoopFromConstructor('newYear', function() {
