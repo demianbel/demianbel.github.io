@@ -64,6 +64,7 @@ game.newLoopFromConstructor('newYear', function() {
 		if(vk_inited) {
 		counter++;
 		if (counter == 20) {
+			log(name);
 			OOP.forInt(5, function() {
 				var snowflake = game.newImageObject({
 					file: 'images/snowflake_2.png',
