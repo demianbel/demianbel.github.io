@@ -32,9 +32,13 @@ VK.api('account.getProfileInfo', function(data){
 	if(data.response) {
 		log(data.response);
 		name = data.response.first_name;
+		log(name);
+		game.startLoop('newYear');
+	} else {
+		log("Why?")
 	}
 });
-log(name);
+
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
 	var bg = game.newImageObject({
@@ -95,4 +99,4 @@ game.newLoopFromConstructor('newYear', function() {
 	};
 });
 
-game.startLoop('newYear');
+
