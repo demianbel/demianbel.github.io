@@ -49,6 +49,7 @@ game.newLoopFromConstructor('newYear', function() {
 	var snowflakes = [];
 	 
 	this.update = function() {
+		game.clear();
 		if (vk_inited && !name) { 
 		VK.api('account.getProfileInfo', function(data){
 			if(data.response) {
@@ -76,7 +77,6 @@ game.newLoopFromConstructor('newYear', function() {
 			});
 			counter = 0;
 		}
-		game.clear();
 		bg.draw();
 		newGameText.draw();
 		OOP.forArr(snowflakes, function(val, i, arr) {
