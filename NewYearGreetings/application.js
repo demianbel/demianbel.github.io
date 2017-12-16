@@ -28,6 +28,7 @@ VK.init(function() {
 	log('vk inited');
  });
 var name = null;
+while (!vk_inited) {}
 VK.api('account.getProfileInfo', function(data){
 	if(data.response) {
 		log(data.response);
