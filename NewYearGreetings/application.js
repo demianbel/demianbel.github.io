@@ -50,7 +50,8 @@ game.newLoopFromConstructor('newYear', function() {
 	 
 	this.update = function() {
 		game.clear();
-		if (vk_inited && !name) { 
+		if (vk_inited && !name) {
+		log('enter to name init')
 		VK.api('account.getProfileInfo', function(data){
 			if(data.response) {
 				log(data.response);
