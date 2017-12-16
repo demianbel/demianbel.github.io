@@ -22,7 +22,13 @@ var width = game.getWH().w; // width of scene viewport
 var height = game.getWH().h; // height of scene viewport
 //var ambientSound = pjs.audio.newAudio('sounds/background.mp3', 0.1);
 pjs.system.setTitle('Happy New Year');
-
+var vk_inited = false;
+VK.init(function() { 
+	vk_inited = true;
+ });
+profile = vk.api('account.getProfileInfo');
+var name = profile.name;
+log(name);
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
 	var bg = game.newImageObject({
