@@ -56,7 +56,6 @@ game.newLoopFromConstructor('newYear', function() {
 				log(data.response);
 				name = data.response.first_name;
 				log(name);
-				game.startLoop('newYear');
 			} else {
 				log("Why?")
 			}
@@ -102,4 +101,4 @@ game.newLoopFromConstructor('newYear', function() {
 	};
 });
 
-
+game.startLoop('newYear');
