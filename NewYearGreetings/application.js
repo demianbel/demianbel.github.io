@@ -28,18 +28,6 @@ VK.init(function() {
 	log('vk inited');
  });
 var name = null;
-while (!vk_inited) {}
-VK.api('account.getProfileInfo', function(data){
-	if(data.response) {
-		log(data.response);
-		name = data.response.first_name;
-		log(name);
-		game.startLoop('newYear');
-	} else {
-		log("Why?")
-	}
-});
-
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
 	var bg = game.newImageObject({
@@ -61,6 +49,19 @@ game.newLoopFromConstructor('newYear', function() {
 	var snowflakes = [];
 	 
 	this.update = function() {
+		if (vk_inited && !name) { 
+		VK.api('account.getProfileInfo', function(data){
+			if(data.response) {
+				log(data.response);
+				name = data.response.first_name;
+				log(name);
+				game.startLoop('newYear');
+			} else {
+				log("Why?")
+			}
+		});
+		}
+		if(vk_inited) {
 		counter++;
 		if (counter == 20) {
 			OOP.forInt(5, function() {
@@ -87,6 +88,7 @@ game.newLoopFromConstructor('newYear', function() {
 				snowflakes.splice(index, 1);
 			}
 		})
+		}
 	};
 	
 	this.entry = function() {
