@@ -25,9 +25,10 @@ pjs.system.setTitle('Happy New Year');
 var vk_inited = false;
 VK.init(function() { 
 	vk_inited = true;
+	log('vk inited');
  });
-profile = VK.api('account.getProfileInfo');
-var name = profile.name;
+var profile = VK.api('account.getProfileInfo');
+var name = profile.first_name;
 log(name);
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
