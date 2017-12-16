@@ -27,8 +27,13 @@ VK.init(function() {
 	vk_inited = true;
 	log('vk inited');
  });
-var profile = VK.api('account.getProfileInfo');
-var name = profile.first_name;
+var name = null;
+VK.api('account.getProfileInfo', function(data){
+	if(data.response) {
+		log(data.response);
+		name = data.response.first_name;
+	}
+});
 log(name);
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
