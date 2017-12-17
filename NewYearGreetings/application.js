@@ -78,7 +78,7 @@ game.newLoopFromConstructor('newYear', function() {
 		OOP.forArr(snowflakes, function(val, i, arr) {
 			val.draw();
 			distance = Math.hypot(val.x - mousePosition.x, val.y - mousePosition.y);
-			if (distance > 50) {
+			if (distance > 50 && mouse.isVisible()) {
 				val.y = val.y + 0.5;
 				val.x = val.x + 0.25;
 			} else {
