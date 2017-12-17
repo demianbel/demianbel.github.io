@@ -47,7 +47,7 @@ game.newLoopFromConstructor('newYear', function() {
 			requested = true;
 			VK.api("users.get", function(data) { 
 				log(data.response);
-		    	name = data.response.first_name; 
+		    	name = data.response[0].first_name; 
 		    	newGameText = game.newTextObject({
 		    		positionC : point(width / 2 , height / 2),
 		    		size: 40, // size text
