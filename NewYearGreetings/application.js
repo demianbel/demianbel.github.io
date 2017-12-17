@@ -27,7 +27,6 @@ VK.init(function() {
 	vk_inited = true;
 	log('vk inited');
  });
-var name = false;
 var requested = false;
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
@@ -40,23 +39,23 @@ game.newLoopFromConstructor('newYear', function() {
 	});
 	
 	var snowflakes = [];
-	 
+	var newGameText;
 	this.update = function() {
 		game.clear();
-		if (vk_inited && name && !requested){
+		if (vk_inited && !requested){
 			log('enter to name init')
 			requested = true;
 			VK.api("users.get", function(data) { 
 		    	name = data.response.first_name; 
+		    	newGameText = game.newTextObject({
+		    		positionC : point(width / 2 , height / 2),
+		    		size: 40, // size text
+		    		color: '#0a0a0a', // color text
+		    		text: 'С Новым Годом, ' + name + ' !', // label
+		    		font: 'Arial' // font family
+		    	});
 			});
 		}
-		var newGameText = game.newTextObject({
-		 	positionC : point(width / 2 , height / 2),
-		    size: 40, // size text
-		    color: '#0a0a0a', // color text
-		    text: 'С Новым Годом, ' + name + ' !', // label
-		    font: 'Arial' // font family
-	});
 		if(vk_inited) {
 		counter++;
 		if (counter == 20) {
@@ -73,7 +72,9 @@ game.newLoopFromConstructor('newYear', function() {
 			counter = 0;
 		}
 		bg.draw();
-		newGameText.draw();
+		if (newGameText) {
+			newGameText.draw();
+		}
 		OOP.forArr(snowflakes, function(val, i, arr) {
 			val.draw();
 			val.y = val.y + 0.5;
