@@ -52,7 +52,7 @@ game.newLoopFromConstructor('newYear', function() {
 		game.clear();
 		if (vk_inited  && name == null){
 		log('enter to name init')
-		VK.api('account.getProfileInfo', function(data){
+		VK.api('account.getProfileInfo', {},function(data){
 			log(data);
 			if(data.response) {
 				log(data.response.toString());
