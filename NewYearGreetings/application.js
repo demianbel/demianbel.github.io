@@ -37,6 +37,21 @@ game.newLoopFromConstructor('newYear', function() {
 	    w: 640,
 	    h: 480,
 	});
+	var tree = game.newImageObject({
+	    file: 'images/tree.png',
+	    x: width - 200,
+	    y: height - 200,
+	    w: 150,
+	    h: 150,
+	});
+	var treeInstructions = game.newTextObject({
+		x: width - 300,
+		y: height - 100,
+		size: 10, // size text
+		color: '#0a0a0a', // color text
+		text: 'Загляни под ёлочку', // label
+		font: 'Arial' // font family
+	});
 	
 	var snowflakes = [];
 	var newGameText;
@@ -71,6 +86,8 @@ game.newLoopFromConstructor('newYear', function() {
 			counter = 0;
 		}
 		bg.draw();
+		tree.draw();
+		treeInstructions.draw();
 		if (newGameText) {
 			newGameText.draw();
 		}
@@ -78,7 +95,7 @@ game.newLoopFromConstructor('newYear', function() {
 		OOP.forArr(snowflakes, function(val, i, arr) {
 			val.draw();
 			distance = Math.hypot(val.x - mousePosition.x, val.y - mousePosition.y);
-			if (distance > 50 && mousePosition.x > 0 && mousePosition.x < width && mousePosition.y > 0 && mousePosition.y < height) {
+			if (distance > 50) {
 				val.y = val.y + 0.5;
 				val.x = val.x + 0.25;
 			} else {
