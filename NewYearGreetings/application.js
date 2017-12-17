@@ -75,16 +75,15 @@ game.newLoopFromConstructor('newYear', function() {
 			newGameText.draw();
 		}
 		var mousePosition = mouse.getPosition();
-		log(snowflakes.length);
 		OOP.forArr(snowflakes, function(val, i, arr) {
 			val.draw();
 			distance = Math.hypot(val.x - mousePosition.x, val.y - mousePosition.y);
-			if (distance > 10) {
+			if (distance > 50) {
 				val.y = val.y + 0.5;
 				val.x = val.x + 0.25;
 			} else {
-				val.y = val.y;
-				val.x = val.x;
+				val.y = val.y + Math.random() - 0.5;
+				val.x = val.x + Math.random() - 0.5;
 			}
 			if (val.y > height || val.x > width) {
 				var index = snowflakes.indexOf(val);
