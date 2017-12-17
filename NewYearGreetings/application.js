@@ -39,33 +39,24 @@ game.newLoopFromConstructor('newYear', function() {
 	    h: 480,
 	});
 	
-	var newGameText = game.newTextObject({
-		 	positionC : point(width / 2 , height / 2),
-		    size: 40, // size text
-		    color: '#0a0a0a', // color text
-		    text: 'С Новым Годом!', // label
-		    font: 'Arial' // font family
-	});
-
 	var snowflakes = [];
 	 
 	this.update = function() {
 		game.clear();
 		if (vk_inited && name && !requested){
-		log('enter to name init')
-		requested = true;
-		VK.api("users.get", function(data) { 
-		    log(data); 
-		});
-		VK.api('account.getProfileInfo', {},function(data){
-			log(data);
-			if(data.response) {
-				log(data.response.toString());
-				name = data.response.first_name;
-				log(name);
-			}
-		});
+			log('enter to name init')
+			requested = true;
+			VK.api("users.get", function(data) { 
+		    	name = data.response..first_name; 
+			});
 		}
+		var newGameText = game.newTextObject({
+		 	positionC : point(width / 2 , height / 2),
+		    size: 40, // size text
+		    color: '#0a0a0a', // color text
+		    text: 'С Новым Годом, ' + name + ' !', // label
+		    font: 'Arial' // font family
+	});
 		if(vk_inited) {
 		counter++;
 		if (counter == 20) {
