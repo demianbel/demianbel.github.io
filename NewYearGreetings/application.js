@@ -47,7 +47,7 @@ game.newLoopFromConstructor('newYear', function() {
 	var treeInstructions = game.newTextObject({
 		x: width - 300,
 		y: height - 100,
-		size: 10, // size text
+		size: 30, // size text
 		color: '#0a0a0a', // color text
 		text: 'Загляни под ёлочку', // label
 		font: 'Arial' // font family
