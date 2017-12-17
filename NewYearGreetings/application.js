@@ -53,17 +53,17 @@ game.newLoopFromConstructor('newYear', function() {
 		if (vk_inited  && name == null){
 		log('enter to name init')
 		VK.api('account.getProfileInfo', function(data){
+			log(data);
 			if(data.response) {
 				log(data.response.toString());
 				name = data.response.first_name;
-//				log(name);
+				log(name);
 			}
 		});
 		}
 		if(vk_inited) {
 		counter++;
 		if (counter == 20) {
-			log(name);
 			OOP.forInt(5, function() {
 				var snowflake = game.newImageObject({
 					file: 'images/snowflake_2.png',
