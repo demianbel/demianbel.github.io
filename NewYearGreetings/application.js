@@ -27,7 +27,7 @@ VK.init(function() {
 	vk_inited = true;
 	log('vk inited');
  });
-var name;
+var name = null;
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
 	var bg = game.newImageObject({
@@ -50,11 +50,11 @@ game.newLoopFromConstructor('newYear', function() {
 	 
 	this.update = function() {
 		game.clear();
-		if (vk_inited){
+		if (vk_inited  && name == null){
 		log('enter to name init')
-		VK.api('account.getProfileInfo', function(data){
+		VK.api('account.getProfileInfo', {},function(data){
 			if(data.response) {
-				log(data.response);
+				log(data.response.toString());
 				name = data.response.first_name;
 				log(name);
 			} else {
