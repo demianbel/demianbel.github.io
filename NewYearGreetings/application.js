@@ -46,6 +46,7 @@ game.newLoopFromConstructor('newYear', function() {
 			log('enter to name init')
 			requested = true;
 			VK.api("users.get", function(data) { 
+				log(data.response);
 		    	name = data.response.first_name; 
 		    	newGameText = game.newTextObject({
 		    		positionC : point(width / 2 , height / 2),
