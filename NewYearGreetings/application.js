@@ -47,7 +47,7 @@ game.newLoopFromConstructor('newYear', function() {
 			log('enter to name init')
 			requested = true;
 			VK.api("users.get", function(data) { 
-		    	name = data.response..first_name; 
+		    	name = data.response.first_name; 
 			});
 		}
 		var newGameText = game.newTextObject({
