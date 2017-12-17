@@ -28,6 +28,7 @@ VK.init(function() {
 	log('vk inited');
  });
 var name = false;
+var requested = false;
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
 	var bg = game.newImageObject({
@@ -50,8 +51,9 @@ game.newLoopFromConstructor('newYear', function() {
 	 
 	this.update = function() {
 		game.clear();
-		if (vk_inited && name){
+		if (vk_inited && name && !requested){
 		log('enter to name init')
+		requested = true;
 		VK.api('account.getProfileInfo', {},function(data){
 			log(data);
 			if(data.response) {
