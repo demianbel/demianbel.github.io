@@ -43,10 +43,8 @@ game.newLoopFromConstructor('newYear', function() {
 	this.update = function() {
 		game.clear();
 		if (vk_inited && !requested){
-			log('enter to name init')
 			requested = true;
 			VK.api("users.get", function(data) { 
-				log(data.response);
 		    	name = data.response[0].first_name; 
 		    	newGameText = game.newTextObject({
 		    		positionC : point(width / 2 , height / 2),
@@ -76,10 +74,18 @@ game.newLoopFromConstructor('newYear', function() {
 		if (newGameText) {
 			newGameText.draw();
 		}
+		var point = mouse.getPosition();
+		log(snowflakes.length);
 		OOP.forArr(snowflakes, function(val, i, arr) {
 			val.draw();
-			val.y = val.y + 0.5;
-			val.x = val.x + 0.25;
+			distance = Math.hypot(val.x - point.x, val.y - point.y);
+			if (distance > 10) {
+				val.y = val.y + 0.5;
+				val.x = val.x + 0.25;
+			} else {
+				val.y = val.y;
+				val.x = val.x;
+			}
 			if (val.y > height || val.x > width) {
 				var index = snowflakes.indexOf(val);
 				snowflakes.splice(index, 1);
