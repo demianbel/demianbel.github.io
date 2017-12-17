@@ -82,8 +82,8 @@ game.newLoopFromConstructor('newYear', function() {
 				val.y = val.y + 0.5;
 				val.x = val.x + 0.25;
 			} else {
-				val.y = val.y + Math.random() - 0.5;
-				val.x = val.x + Math.random() - 0.5;
+				val.y = val.y + Math.random() * 4 - 2;
+				val.x = val.x + Math.random() * 4 - 2;
 			}
 			if (val.y > height || val.x > width) {
 				var index = snowflakes.indexOf(val);
