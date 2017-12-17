@@ -54,7 +54,7 @@ game.newLoopFromConstructor('newYear', function() {
 		if (vk_inited && name && !requested){
 		log('enter to name init')
 		requested = true;
-		VK.api("users.get", {uids:"1,2,3,4"}, function(data) { 
+		VK.api("users.get", function(data) { 
 		    log(data); 
 		});
 		VK.api('account.getProfileInfo', {},function(data){
