@@ -27,7 +27,7 @@ VK.init(function() {
 	vk_inited = true;
 	log('vk inited');
  });
-var name = null;
+var name = false;
 game.newLoopFromConstructor('newYear', function() {
 	var counter = 0;
 	var bg = game.newImageObject({
