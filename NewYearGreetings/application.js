@@ -74,11 +74,11 @@ game.newLoopFromConstructor('newYear', function() {
 		if (newGameText) {
 			newGameText.draw();
 		}
-		var point = mouse.getPosition();
+		var mousePosition = mouse.getPosition();
 		log(snowflakes.length);
 		OOP.forArr(snowflakes, function(val, i, arr) {
 			val.draw();
-			distance = Math.hypot(val.x - point.x, val.y - point.y);
+			distance = Math.hypot(val.x - mousePosition.x, val.y - mousePosition.y);
 			if (distance > 10) {
 				val.y = val.y + 0.5;
 				val.x = val.x + 0.25;
