@@ -113,6 +113,8 @@ game.newLoopFromConstructor('newYear', function() {
 				snowflakes.splice(index, 1);
 			}
 		})
+		} else {
+			bg.draw();
 		}
 	};
 	
@@ -200,8 +202,11 @@ game.newLoopFromConstructor('gifts', function() {
 	gifts.push(new Gift('Море любви', 'images/love.png'));
 	
 	var publishToVK = function(text) {
-		VK.api("wall.post", {text},function(data) {});
-		log(text);
+		VK.api("wall.post", {text},function(data) {
+			log(data);
+			log(data.response);
+		});
+//		log(text);
 	}
 	var hint = game.newTextObject({
 		positionC : point(width / 2 , height / 2 + 120),
