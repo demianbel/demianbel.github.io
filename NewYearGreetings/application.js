@@ -202,11 +202,7 @@ game.newLoopFromConstructor('gifts', function() {
 	gifts.push(new Gift('Море любви', 'images/love.png'));
 	
 	var publishToVK = function(text) {
-		VK.api("wall.post", {message: text}, function(data) {
-			log(data);
-			log(data.response);
-		});
-//		log(text);
+		VK.api("wall.post", {message: text}, function(data) {});
 	}
 	var hint = game.newTextObject({
 		positionC : point(width / 2 , height / 2 + 120),
