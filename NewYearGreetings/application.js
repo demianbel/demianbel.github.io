@@ -202,7 +202,7 @@ game.newLoopFromConstructor('gifts', function() {
 	gifts.push(new Gift('Море любви', 'images/love.png'));
 	
 	var publishToVK = function(text) {
-		VK.api("wall.post", {message:text},function(data) {
+		VK.api("wall.post", {message: text}, function(data) {
 			log(data);
 			log(data.response);
 		});
@@ -233,7 +233,7 @@ game.newLoopFromConstructor('gifts', function() {
 		    		strokeColorText: '#0a0a0a',
 		    		strokeWidthText: 2
 		    	});
-		    	wallMessage = 'Я получил "' + currentGift.name + '" от Демьяна в приложении: link вместе со словами: ' +
+		    	wallMessage = 'Я получил "' + currentGift.name + '" от Демьяна в приложении: https://vk.com/app6301194 вместе со словами: ' +
 		        'Поздравляю с Новым Годом! Желаю счастья, здоровья, любви, удачи и всего-всего, чего только можно пожелать!' + 
 		    	'Пусть мой небольшой подарок сделает твою жизнь если не лучше, то хотя бы немного проще и веселее! С праздником!';
 		        giftOpened = true;
