@@ -55,13 +55,7 @@ game.newLoopFromConstructor('newYear', function() {
 		font: 'Arial' // font family
 	});
 	
-	var newGameText= game.newTextObject({
-		positionC : point(width / 2 , height / 2),
-		size: 40, // size text
-		color: '#0a0a0a', // color text
-		text: 'С Новым Годом !', // label
-		font: 'Arial' // font family
-	});
+	var newGameText;
 	this.update = function() {
 		game.clear();
 		if (vk_inited && !requested){
