@@ -202,7 +202,7 @@ game.newLoopFromConstructor('gifts', function() {
 	gifts.push(new Gift('Море любви', 'images/love.png'));
 	
 	var publishToVK = function(text) {
-		VK.api("wall.post", {text},function(data) {
+		VK.api("wall.post", {message:text},function(data) {
 			log(data);
 			log(data.response);
 		});
