@@ -52,7 +52,7 @@ game.newLoopFromConstructor('newYear', function() {
 		size: 25, // size text
 		color: '#0a0a0a', // color text
 		text: 'Загляни под ёлочку', // label
-		font: 'Arial' // font family
+		font: 'Lobster' // font family
 	});
 	
 	var newGameText;
@@ -67,7 +67,7 @@ game.newLoopFromConstructor('newYear', function() {
 		    		size: 40, // size text
 		    		color: '#0a0a0a', // color text
 		    		text: 'С Новым Годом, ' + name + ' !', // label
-		    		font: 'Arial' // font family
+		    		font: 'Lobster' // font family
 		    	});
 			});
 		}
@@ -142,12 +142,14 @@ game.newLoopFromConstructor('gifts', function() {
 	var openedGift;
 	var openedGiftInfo;
 	var toTheWall = game.newTextObject({
-		x: 230,
-		y: height - 40,
+		x: 240,
+		y: height - 30,
 		size: 25, // size text
 		color: '#FFD700', // color text
 		text: 'Получить поздравление на стену!', // label
-		font: 'Arial' // font family
+		font: 'Lobster', // font family
+		strokeColorText: '#0a0a0a',
+		strokeWidthText: 1
 	});
 	var gift = game.newAnimationObject({
         animation: tiles.newImage('images/animated_gift.png').getAnimation(0, 0, 256, 256, 8),
@@ -164,7 +166,9 @@ game.newLoopFromConstructor('gifts', function() {
 		size: 25, // size text
 		color: '#FF0000', // color text
 		text: 'Ура, подарок!', // label
-		font: 'Arial' // font family
+		font: 'Lobster', // font family
+		strokeColorText: '#0a0a0a',
+		strokeWidthText: 1
 	});
 	
 	var treeInstructionsSecondRow = game.newTextObject({
@@ -173,7 +177,9 @@ game.newLoopFromConstructor('gifts', function() {
 		size: 25, // size text
 		color: '#FF0000', // color text
 		text: 'Скорее открывай!', // label
-		font: 'Arial' // font family
+		font: 'Lobster', // font family
+		strokeColorText: '#0a0a0a',
+		strokeWidthText: 1
 	});
 	
 	var gifts = [];
@@ -209,9 +215,9 @@ game.newLoopFromConstructor('gifts', function() {
 		size: 25, // size text
 		color: '#FF0000', // color text
 		text: 'Кликни на подарок, если хочешь другой!', // label
-		font: 'Arial', // font family
+		font: 'Lobster', // font family
 		strokeColorText: '#0a0a0a',
-		strokeWidthText: 2
+		strokeWidthText: 1
 	});
 	var wallMessage;	
 	this.update = function() {
@@ -225,9 +231,9 @@ game.newLoopFromConstructor('gifts', function() {
 		    		size: 30, // size text
 		    		color: '#FF0000', // color text
 		    		text: currentGift.name, // label
-		    		font: 'Arial', // font family
+		    		font: 'Lobster', // font family
 		    		strokeColorText: '#0a0a0a',
-		    		strokeWidthText: 2
+		    		strokeWidthText: 1
 		    	});
 		    	wallMessage = 'Теперь у меня есть подарок "' + currentGift.name + '" из приложения: https://vk.com/app6301194 вместе со словами: ' +
 		        'Поздравляю с Новым Годом и Рождеством! Желаю счастья, здоровья, любви, удачи и всего-всего, чего только можно пожелать! ' + 
